@@ -26,7 +26,8 @@
             },
             render: {
                 lineWidth: 2,
-                strokeStyle: '#2D6CA2'
+                strokeStyle: '#2D6CA2',
+                lineDashed: false // : [false (boolean), array]
                 // + : another canvas options e.g.: shadowColor: 'rgba(0, 0, 0, 0)', shadowBlur: 0, lineJoin: 'round',
             }
 		};
@@ -211,6 +212,9 @@
             default:
                 break;
         }
+        
+        if (context.lineDashed !== undefined) // Draw dashed line if set
+            context.setLineDash(context.lineDashed);
         
         context.stroke();
     }
